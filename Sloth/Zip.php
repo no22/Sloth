@@ -24,6 +24,41 @@
  *|12
  *|20
  *|30
+ * $seq = iter(1,fn('$n+1'));
+ * $seq2 = iter(array(1,2,3,4,5));
+ * foreach ($seq->map(fn('$x*$x'))->zip($seq2) as $elt) {
+ *     $e = print_r($elt,true);
+ *     echo "{$e}\n";
+ * }
+ *|Array
+ *|(
+ *|    [0] => 1
+ *|    [1] => 1
+ *|)
+ *|
+ *|Array
+ *|(
+ *|    [0] => 4
+ *|    [1] => 2
+ *|)
+ *|
+ *|Array
+ *|(
+ *|    [0] => 9
+ *|    [1] => 3
+ *|)
+ *|
+ *|Array
+ *|(
+ *|    [0] => 16
+ *|    [1] => 4
+ *|)
+ *|
+ *|Array
+ *|(
+ *|    [0] => 25
+ *|    [1] => 5
+ *|)
  * <<<<
  */
 
@@ -75,6 +110,9 @@ else {
         {
             parent::__construct($seq);
             $this->iterator2 = Sloth::iter($aSeq[0]);
+            if (is_null($callback)) {
+                $callback = fn('array($a,$b)');
+            }
             if (!is_callable($callback)) throw new InvalidArgumentException;
             $this->callback = $callback;
         }

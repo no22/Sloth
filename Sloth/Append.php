@@ -23,9 +23,12 @@ class Sloth_Append extends Sloth_Iterator
 {
     public function __construct($seq,$aSeq)
     {
-        $iterator = Sloth::iter($seq);
+        $iterator = null;
         $itAppend = new AppendIterator();
-        $itAppend->append($iterator);
+        if (!is_null($seq)) {
+            $iterator = Sloth::iter($seq);
+            $itAppend->append($iterator);
+        }
         foreach ($aSeq as $mSeq) {
             $itAppend->append(Sloth::iter($mSeq));
         }

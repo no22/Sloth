@@ -87,6 +87,16 @@ class Sloth
     }
 
     /**
+     * iterAll
+     * @param object $obj
+     * @return object
+     */
+    public static function iterAll($aSeq)
+    {
+        return new Sloth_Append(null, $aSeq);
+    }
+
+    /**
      * ref
      * @param object $obj
      * @return object
@@ -101,12 +111,11 @@ class Sloth
      * @param string $sFile
      * @return void
      */
-    public static function doctest($sFile)
+    public static function doctest($sFile, $bQuiet = false)
     {
-        $oTest = new Sloth_DocTest($sFile);
+        $oTest = new Sloth_DocTest($sFile, $bQuiet);
         $oTest->invoke();
     }
-
 }
 
 if (!function_exists('fn')) {
@@ -118,11 +127,14 @@ if (!function_exists('op')) {
 if (!function_exists('iter')) {
     function iter($fst, $fn = null) { return Sloth::iter($fst, $fn); }
 }
+if (!function_exists('iterAll')) {
+    function iterAll($seq) { return Sloth::iterAll($seq); }
+}
 if (!function_exists('ref')) {
     function ref($o) { return Sloth::ref($o); }
 }
 if (!function_exists('doctest')) {
-    function doctest($file) { return Sloth::doctest($file); }
+    function doctest($file,$flag=false) { return Sloth::doctest($file,$flag); }
 }
 
 //

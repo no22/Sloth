@@ -35,7 +35,6 @@ function ne($mValue1, $mValue2)
 class Sloth_DocTest
 {
     public $sourcePath;
-
     /**
      * __construct
      * @param string $sFilePath = NULL
