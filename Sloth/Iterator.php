@@ -319,12 +319,12 @@ class Sloth_Iterator implements Iterator, Sloth_Iterator_Interface
     /**
      * toArray
      * Convert to array
-     * @param  void
+     * @param  bool $useKeys = true
      * @return array
      */
-    public function toArray()
+    public function toArray($useKeys = true)
     {
-        return iterator_to_array($this);
+        return iterator_to_array($this, $useKeys);
     }
 
     /**
@@ -335,6 +335,17 @@ class Sloth_Iterator implements Iterator, Sloth_Iterator_Interface
     public function dup()
     {
         return clone $this;
+    }
+
+    /**
+     * norewind
+     * 
+     * @param  void
+     * @return object Iterator
+     */
+    public function norewind()
+    {
+        return new Sloth_NoRewind($this);
     }
 }
 

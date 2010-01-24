@@ -32,4 +32,5 @@ interface Sloth_Iterator_Interface
     public function scan($mInit, $fnCallback);
     public function toArray();
     public function dup();
+    public function norewind();
 }
