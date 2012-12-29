@@ -1,15 +1,5 @@
 <?php
-//>php %FILE%
-/**
- * Sloth_Follow
- * derived from anatoo's work
- *      http://d.hatena.ne.jp/anatoo/20090701/1246391054
- * @package     Sloth
- * @author      Hiroyuki OHARA <Hiroyuki.no22@gmail.com>
- * @since       2009-08-25
- */
-
-!count(debug_backtrace()) and require "./AutoLoad.php";
+!count(debug_backtrace()) and require "./Autoload.php";
 
 /**
  * Sloth_Follow
@@ -48,8 +38,7 @@ class Sloth_Follow extends Sloth_Iterator
         $result = call_user_func($this->fn, $this->current_value, ++$this->key);
         if ($result === false) {
             $this->is_valid = false;
-        }
-        else {
+        } else {
             $this->current_value = $result;
         }
     }

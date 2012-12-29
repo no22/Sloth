@@ -1,15 +1,5 @@
 <?php
-//>php %FILE%
-/**
- * Sloth_Map
- * derived from anatoo's work
- *      http://d.hatena.ne.jp/anatoo/20090502/1241238575
- * @package     Sloth
- * @author      Hiroyuki OHARA <Hiroyuki.no22@gmail.com>
- * @since       2009-8-29
- */
-
-!count(debug_backtrace()) and require "./AutoLoad.php";
+!count(debug_backtrace()) and require "./Autoload.php";
 
 /**
  * Sloth_Map

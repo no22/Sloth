@@ -1,14 +1,5 @@
 <?php
-//>php %FILE%
-/**
- * Sloth_Iterator
- * 
- * @package     Sloth
- * @author      Hiroyuki OHARA <Hiroyuki.no22@gmail.com>
- * @since       2009-08-25
- */    
-
-!count(debug_backtrace()) and require "./AutoLoad.php";
+!count(debug_backtrace()) and require "./Autoload.php";
 
 /**
  * Sloth_Iterator
@@ -20,7 +11,7 @@
  *|1,2,3,4,5,6,
  * <<<<
  */
-class Sloth_Iterator implements Iterator, Sloth_Iterator_Interface
+class Sloth_Iterator implements Iterator, Sloth_IteratorInterface
 {
     protected $iterator;
 
@@ -207,7 +198,7 @@ class Sloth_Iterator implements Iterator, Sloth_Iterator_Interface
      */
     public function takeWhile($fnCallback)
     {
-        return new Sloth_While($this, $fnCallback, false);
+        return new Sloth_DoWhile($this, $fnCallback, false);
     }
 
     /**
@@ -218,7 +209,7 @@ class Sloth_Iterator implements Iterator, Sloth_Iterator_Interface
      */
     public function dropWhile($fnCallback)
     {
-        return new Sloth_While($this, $fnCallback, true);
+        return new Sloth_DoWhile($this, $fnCallback, true);
     }
 
     /**

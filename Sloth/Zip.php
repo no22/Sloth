@@ -1,14 +1,5 @@
 <?php
-//>php %FILE%
-/**
- * Sloth_Zip
- *
- * @package     Sloth
- * @author      Hiroyuki OHARA <Hiroyuki.no22@gmail.com>
- * @since       2009-08-25
- */    
-
-!count(debug_backtrace()) and require "./AutoLoad.php";
+!count(debug_backtrace()) and require "./Autoload.php";
 
 /**
  * Sloth_Zip
@@ -99,8 +90,7 @@ if (version_compare(PHP_VERSION, '5.3', '>=')) {
             return call_user_func_array($callback, $this->iterator->current());
         }
     }
-}
-else {
+} else {
     class Sloth_Zip extends Sloth_Iterator
     {
         protected $callback = null;

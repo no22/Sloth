@@ -1,13 +1,5 @@
 <?php
-//>php %FILE%
-/**
- * Sloth_NoRewind
- *
- * @package     Sloth
- * @author      Hiroyuki OHARA <Hiroyuki.no22@gmail.com>
- * @since       2010-01-13
- */    
-!count(debug_backtrace()) and require "./AutoLoad.php";
+!count(debug_backtrace()) and require "./Autoload.php";
 
 class Sloth_NoRewind extends Sloth_Iterator
 {

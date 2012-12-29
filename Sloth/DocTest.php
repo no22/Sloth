@@ -1,13 +1,4 @@
 <?php
-//>php -l %FILE%
-/**
- * Sloth_DocTest
- * 
- * @package     Sloth
- * @author      Hiroyuki OHARA <Hiroyuki.no22@gmail.com>
- * @since       2009-08-04
- */    
-
 /**
  * eq
  * @param mixed $mValue1
@@ -66,13 +57,11 @@ class Sloth_DocTest
             if (eval($sTest) === false) {
                 echo "Parse error.\n";
             }
-        }
-        else {
+        } else {
             ob_start();
             if (eval($sTest) === false) {
                 echo "Parse error.\n";
-            }
-            else {
+            } else {
                 $sOutput = ob_get_contents();
             }
             ob_end_flush();
@@ -80,8 +69,7 @@ class Sloth_DocTest
             $sOutput = rtrim(preg_replace('/\x0D\x0A|\x0D|\x0A/s',"\n", $sOutput));
             if (rtrim($sOutput) === rtrim($sResult)) {
                 echo "PASS.\n";
-            }
-            else {
+            } else {
                 echo "FAIL.\n";
                 echo "expected:\n";
                 echo "{$sResult}\n";
@@ -116,26 +104,21 @@ class Sloth_DocTest
             if (preg_match('/^\s*\*\s*>>>>\s*$/',$line)) {
                 $isMultiLine = true;
                 $aCode = array();
-            }
-            else if (preg_match('/^\s*\*\s*>>>\s*(.*)$/',$line,$matched)) {
+            } else if (preg_match('/^\s*\*\s*>>>\s*(.*)$/',$line,$matched)) {
                 $this->displayTestResult($matched[1],$num);
-            }
-            else if ($isMultiLine) {
+            } else if ($isMultiLine) {
                 if (preg_match('/^\s*\*\s*<<<<\s*$/',$line)) {
                     $this->displayTestResult(implode("\n", $aCode),$num, implode("\n", $aResult));
                     $isMultiLine = false;
                     $aCode = array();
                     $aResult = array();
-                }
-                else if (preg_match('/^\s*\*\|(.*)$/',$line,$matched)) {
+                } else if (preg_match('/^\s*\*\|(.*)$/',$line,$matched)) {
                     $sResult = $matched[1];
                     $aResult[] = $sResult;
-                }
-                else if (preg_match('/^\s*\*(.*)$/',$line,$matched)) {
+                } else if (preg_match('/^\s*\*(.*)$/',$line,$matched)) {
                     $sCode = $matched[1];
                     $aCode[] = $sCode;
-                }
-                else {
+                } else {
                     $isMultiLine = false;
                     $aCode = array();
                     $aResult = array();

@@ -1,14 +1,5 @@
 <?php
-//>php %FILE%
-/**
- * Sloth_While
- *
- * @package     Sloth
- * @author      Hiroyuki OHARA <Hiroyuki.no22@gmail.com>
- * @since       2009-08-25
- */    
-
-!count(debug_backtrace()) and require "./AutoLoad.php";
+!count(debug_backtrace()) and require "./Autoload.php";
 
 /**
  * Sloth_While
@@ -29,7 +20,7 @@
  *|256
  * <<<<
  */
-class Sloth_While extends Sloth_Iterator
+class Sloth_DoWhile extends Sloth_Iterator
 {
     protected $callback;
     protected $isDrop = false;
@@ -56,8 +47,7 @@ class Sloth_While extends Sloth_Iterator
     {
         if ($this->isDrop) {
             return $this->iterator->valid();
-        }
-        else {
+        } else {
             return call_user_func($this->callback, $this->iterator->current());
         }
     }

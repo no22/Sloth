@@ -1,13 +1,5 @@
 <?php
-//>php %FILE%
-/**
- * Sloth_Chunk
- *
- * @package     Sloth
- * @author      Hiroyuki OHARA <Hiroyuki.no22@gmail.com>
- * @since       2009-08-29
- */    
-!count(debug_backtrace()) and require "./AutoLoad.php";
+!count(debug_backtrace()) and require "./Autoload.php";
 /**
  * Sloth_Chunk
  * >>>>
