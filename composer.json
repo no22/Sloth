@@ -1,0 +1,19 @@
+{
+	"name": "no22/sloth",
+	"type": "library",
+	"description": "Simple SPL iterator wrapper",
+	"keywords": ["iterator"],
+	"license": ["MIT", "GPL-3.0+"],
+	"authors": [
+		{
+			"name": "Hiroyuki OHARA",
+			"email": "Hiroyuki.no22@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=5.2"
+	},
+	"autoload": {
+		"files" : ["src/Sloth/Autoload.php"]
+	}
+}
