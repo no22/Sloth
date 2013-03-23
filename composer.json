@@ -1,7 +1,7 @@
 {
 	"name": "no22/sloth",
 	"type": "library",
-	"description": "Simple SPL iterator wrapper",
+	"description": "simple lazy application iterator",
 	"keywords": ["iterator"],
 	"license": ["MIT", "GPL-3.0+"],
 	"authors": [
